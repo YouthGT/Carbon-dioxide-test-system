@@ -1,0 +1,5 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\帮助.c:7:5"
+

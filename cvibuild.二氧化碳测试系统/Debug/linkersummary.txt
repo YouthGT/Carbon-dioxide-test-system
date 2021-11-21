@@ -1,0 +1,14 @@
+二氧化碳测试系统.obj
+cvi.lib
+NIDAQmx.lib
+cvistart.lib
+kernel32.lib
+pwctrl.obj
+toolbox.obj
+advapi32.lib
+cviauto.lib
+gdi32.lib
+user32.lib
+EXE Symbol Module
+Exports Module
+Resource Module
