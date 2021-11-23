@@ -1,7 +1,7 @@
 [Workspace Header]
 Version = 2000
-Pathname Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Pathname Line0002 = "系统/二氧化碳测试系统.cws"
+Pathname Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Pathname Line0002 = "测试系统/二氧化碳测试系统.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2020"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2020"
@@ -14,11 +14,11 @@ Number of Projects = 1
 Active Project = 1
 Project 0001 = "二氧化碳测试系统.prj"
 Drag Bar Left = 242
-Window Top = 137
-Window Left = 538
-Window Bottom = 921
-Window Right = 1297
-Maximized = False
+Window Top = 117
+Window Left = 155
+Window Bottom = 902
+Window Right = 1415
+Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
 Track Include File Dependencies = True
@@ -31,7 +31,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 7
+Number of Opened Files = 3
 Window Confinement Region Enabled = True
 MainColumnWidth = 225
 FileDateColumnWidth = 70
@@ -53,110 +53,94 @@ Disk Date = 3715809134
 In Projects = "1,"
 
 [File 0002]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/二氧化碳测试系统.c"
-File Type = "CSource"
-Disk Date = 3720349787
+Path = "/c/Program Files (x86)/National Instruments/CVI2020/toolslib/toolbox/asynctmr.fp"
+File Type = "Function Panel"
+Disk Date = 3715809134
 In Projects = "1,"
-Source Window State = "1,207,207,207,65,65,65,0,0,0,0,0,0,0,0,0,202,0,207,65,349,628,1,0,"
-Window Top = 33
-Window Left = 10
-Window Z-Order = 4
 
 [File 0003]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/主界面.uir"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/二氧化碳测试系统.uir"
 File Type = "User Interface Resource"
-Disk Date = 3720349877
+Disk Date = 3720508106
 In Projects = "1,"
-Window Top = 64
-Window Left = 26
+Window Top = 33
+Window Left = 10
 Window Height = 349
 Window Width = 628
 Window Z-Order = 3
 
 [File 0004]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/主界面.h"
-File Type = "Include"
-Disk Date = 3720350655
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/主界面.uir"
+File Type = "User Interface Resource"
+Disk Date = 3720507756
 In Projects = "1,"
-Source Window State = "1,55,55,55,115,115,115,0,0,0,0,0,0,0,0,0,0,0,55,115,349,628,1,0,"
-Window Top = 95
-Window Left = 42
-
-[File 0005]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/二氧化碳测试系统.h"
-File Type = "Include"
-Disk Date = 3720351092
-In Projects = "1,"
-Source Window State = "1,7,7,7,0,20,20,0,3,0,0,0,0,0,0,0,0,0,7,0,349,628,1,0,"
-Window Top = 33
-Window Left = 10
+Window Top = 64
+Window Left = 26
+Window Height = 349
+Window Width = 628
 Window Z-Order = 2
 
+[File 0005]
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/二氧化碳测试系统.c"
+File Type = "CSource"
+Disk Date = 3720508106
+In Projects = "1,"
+Source Window State = "1,96,96,96,1,1,1,0,0,0,0,0,0,0,0,0,193,0,96,1,349,628,1,0,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 1
+
 [File 0006]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/帮助.uir"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/帮助.uir"
 File Type = "User Interface Resource"
-Disk Date = 3720347900
+Disk Date = 3720350688
 In Projects = "1,"
 Window Top = 188
 Window Left = 90
 Window Height = 323
 Window Width = 628
-Window Z-Order = 5
 
 [File 0007]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/二氧化碳测试系统.uir"
-File Type = "User Interface Resource"
-Disk Date = 3720351165
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/主界面.h"
+File Type = "Include"
+Disk Date = 3720506237
 In Projects = "1,"
-Window Top = 33
-Window Left = 10
-Window Height = 349
-Window Width = 628
-Window Z-Order = 1
+Source Window State = "1,55,55,55,115,115,115,0,0,0,0,0,0,0,0,0,0,0,55,115,349,628,1,0,"
+Window Top = 95
+Window Left = 42
 
 [File 0008]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/帮助.h"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/二氧化碳测试系统.h"
+File Type = "Include"
+Disk Date = 3720507788
+In Projects = "1,"
+Source Window State = "1,0,0,0,76,76,76,0,0,0,0,0,0,0,0,0,0,0,0,76,349,628,1,0,"
+Window Top = 33
+Window Left = 10
+
+[File 0009]
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/帮助.h"
 File Type = "Include"
 Disk Date = 3720347900
 In Projects = "1,"
-Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,349,628,1,0,"
+Source Window State = "1,0,0,0,76,76,76,0,0,0,0,0,0,0,0,0,0,0,0,76,349,628,1,0,"
 Window Top = 126
 Window Left = 58
-Window Z-Order = 6
-
-[File 0009]
-Path Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Path Line0002 = "系统/帮助.c"
-File Type = "CSource"
-Disk Date = 3720347827
-In Projects = ""
-Source Window State = "1,19,35,35,0,1,1,0,3,0,0,0,0,0,0,0,0,0,19,0,349,628,1,0,"
-Window Top = 95
-Window Left = 42
-Window Z-Order = 7
 
 [Tab Order]
-Tab 0001 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0001 Line0002 = "系统/主界面.uir"
-Tab 0002 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0002 Line0002 = "系统/二氧化碳测试系统.c"
-Tab 0003 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0003 Line0002 = "系统/帮助.uir"
-Tab 0004 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0004 Line0002 = "系统/二氧化碳测试系统.uir"
-Tab 0005 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0005 Line0002 = "系统/帮助.c"
-Tab 0006 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0006 Line0002 = "系统/帮助.h"
-Tab 0007 Line0001 = "/c/Users/youth/Desktop/基于虚拟仪器的肥料发酵过程二氧化碳测试"
-Tab 0007 Line0002 = "系统/二氧化碳测试系统.h"
+Tab 0001 Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Tab 0001 Line0002 = "测试系统/二氧化碳测试系统.c"
+Tab 0002 Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Tab 0002 Line0002 = "测试系统/二氧化碳测试系统.uir"
+Tab 0003 Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Tab 0003 Line0002 = "测试系统/主界面.uir"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

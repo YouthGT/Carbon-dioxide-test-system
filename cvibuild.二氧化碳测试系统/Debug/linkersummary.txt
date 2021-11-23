@@ -2,6 +2,7 @@
 cvi.lib
 NIDAQmx.lib
 cvistart.lib
+asynctmr.obj
 kernel32.lib
 pwctrl.obj
 toolbox.obj

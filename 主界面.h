@@ -46,18 +46,16 @@
 #define  MAINPANEL_NUMERIC_up             31      /* control type: numeric, callback function: (none) */
 #define  MAINPANEL_PICTURE                32      /* control type: picture, callback function: (none) */
 #define  MAINPANEL_TEXTMSG_0              33      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_AItimer                34      /* control type: timer, callback function: AItimer_Callback */
-#define  MAINPANEL_SystemTime             35      /* control type: timer, callback function: SystemTime_Callback */
-#define  MAINPANEL_TEXTMSG_3              36      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_5              37      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_4              38      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_1              39      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TIMER_mm               40      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_FileAnalysis           41      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_7              42      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_8              43      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_9              44      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_10             45      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_3              34      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_5              35      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_4              36      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_1              37      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TIMER_mm               38      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_FileAnalysis           39      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_7              40      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_8              41      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_9              42      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_10             43      /* control type: textMsg, callback function: (none) */
 
 
      /* Control Arrays: */
@@ -86,7 +84,6 @@
 
 void CVICALLBACK About_Callback(int menubar, int menuItem, void *callbackData, int panel);
 int  CVICALLBACK Acquire(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK AItimer_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 void CVICALLBACK ASCII_I_Callback(int menubar, int menuItem, void *callbackData, int panel);
 void CVICALLBACK ASCII_O_Callback(int menubar, int menuItem, void *callbackData, int panel);
 int  CVICALLBACK AutoSave_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
@@ -102,7 +99,6 @@ int  CVICALLBACK Quit_Callback(int panel, int control, int event, void *callback
 int  CVICALLBACK SaveData_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK SetAlarms_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK Stop_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK SystemTime_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 
 
 #ifdef __cplusplus

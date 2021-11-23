@@ -1,3 +1,4 @@
+#include "asynctmr.h"
 #include <NIDAQmx.h>
 #include <formatio.h>
 #include "pwctrl.h"
@@ -7,11 +8,14 @@
 #include "主界面.h"
 #include "帮助.h"
 
-static int PassWord;//
+static int PassWord;
 static int panelHandle;
 static int MainPanelHandle;
 static int HelpPanelHandle;
-static TaskHandle AItaskhandle;
+static int Icon_Handle;
+int AIAsyncTimer;//定义采集异步定时器
+int DTAsyncTimer;//定义日期时间异步定时器
+static TaskHandle AItaskhandle;//创建任务
 double aidata[3]={25.0,0,18.0};//默认高低限
 double upper_limit =25,lower_limit =18;//默认高低限
 int fileTypeI=1;//默认输入ASCII类型
@@ -19,7 +23,10 @@ int fileTypeO=1;//默认输出ASCII类型
 char timeString[50],dateString[50];//时间、日期数组
 static char NewFilePath[MAX_PATHNAME_LEN]={"f:\\"};//文件夹名称
 static char file_name[MAX_PATHNAME_LEN];
-
+int icon_index;//系统托盘目录
+int CVICALLBACK Icon_Callback (int iconHandle, int event, int eventData);
+int CVICALLBACK AIAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);
+int CVICALLBACK DTAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);
 
 int main (int argc, char *argv[])
 {
@@ -31,15 +38,66 @@ int main (int argc, char *argv[])
 	    return -1;
 	PassWord = PasswordCtrl_ConvertFromString (panelHandle, PANEL_PASSWORD);//将输入的字符转换成密码
 	PasswordCtrl_SetAttribute(panelHandle,PANEL_PASSWORD,ATTR_PASSWORD_MASK_CHARACTER,42);//让输入的密码显示为*
-	DisplayPanel (panelHandle);
+	AIAsyncTimer = NewAsyncTimer (0.1, -1, 0, AIAsyncTimer_Callback, 0);//AI异步定时器参数设置
+	DTAsyncTimer = NewAsyncTimer (0.1, -1, 1, DTAsyncTimer_Callback, 0);//DT异步定时器参数设置
+	DisplayPanel (panelHandle);//显示输入密码面板
 	RunUserInterface ();
 	DiscardPanel (MainPanelHandle);
 	return 0;
 }
-//输入密码界面回调
-int CVICALLBACK Panel_Callback (int panel, int event, void *callbackData,
-								int eventData1, int eventData2)
+/*AI采集异步定时器*/
+int CVICALLBACK AIAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2)
 {
+	float64 AIdata[1000];
+	int32 sampsread;
+	int i=0;
+	switch (event)
+	{
+		case EVENT_TIMER_TICK:
+			DAQmxReadAnalogF64 (AItaskhandle, DAQmx_Val_Auto, 10.0, DAQmx_Val_GroupByChannel, AIdata, 1000, &sampsread, 0);	//读取数据
+		    AIdata[i]=AIdata[i]*12.5+3; //标度变换
+			aidata[1]=AIdata[i];//将采集数据传递给第二组Cursor,以便在示波器中显示
+			PlotStripChart (MainPanelHandle, MAINPANEL_STRIPCHART, aidata, 3, 0, 0, VAL_DOUBLE);
+			SetCtrlVal (MainPanelHandle, MAINPANEL_CONCENTRATION, aidata[1]);
+			//温度警报灯亮灭控制
+			if (AIdata[i] >= upper_limit) 
+				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_HIGH, 1);
+   	   	    else
+				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_HIGH, 0);
+			if (AIdata[i] <= lower_limit)
+				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_LOW, 1);
+			else
+				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_LOW, 0);	
+			break;
+	}
+	return 0;
+	
+}
+/*获取日期时间异步定时器*/
+int CVICALLBACK DTAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2)
+{
+    int Seconds;
+    int Minutes;
+    int Hours;
+	int Month;
+	int Day;
+	int Year;
+	switch (event)
+	{
+		case EVENT_TIMER_TICK:
+		GetSystemTime (&Hours, &Minutes, &Seconds);
+		GetSystemDate (&Month, &Day, &Year);
+        Fmt (dateString, "%d年%d月%d日",Year,Month,Day); 
+		Fmt (timeString, "%d时%d分%d秒",Hours,Minutes,Seconds);
+		SetCtrlVal (MainPanelHandle, MAINPANEL_Date, dateString);
+		SetCtrlVal (MainPanelHandle, MAINPANEL_Time, timeString);
+			break;
+	}
+	return 0;
+}
+/*输入密码界面回调*/
+int CVICALLBACK Panel_Callback (int panel, int event, void *callbackData,int eventData1, int eventData2)
+{	int Waring;
 	switch (event)
 	{
 		case EVENT_GOT_FOCUS:
@@ -49,17 +107,20 @@ int CVICALLBACK Panel_Callback (int panel, int event, void *callbackData,
 
 			break;
 		case EVENT_CLOSE:
-            QuitUserInterface (0);
+			Waring = ConfirmPopup ("警告", "是否退出系统？");
+			if(Waring)
+			{
+				QuitUserInterface (0);
+			}
 			break;
 	}
 	return 0;
 }
 /*进入系统按钮*/
-int CVICALLBACK EnterSystem_Callback (int panel, int control, int event,
-									 void *callbackData, int eventData1, int eventData2)
+int CVICALLBACK EnterSystem_Callback (int panel, int control, int event, void *callbackData, int eventData1, int eventData2)
 {
-	char pw[100];
-	char TruePw[100]="youthgt";
+	static char Pw[100];
+    static char TruePw[100]="youthgt";
 	//strcmp(str1, str2);   strcmp比较字符串是否相同返回值：
     //如果返回值 < 0，则表示 str1 小于 str2。
     //如果返回值 > 0，则表示 str2 小于 str1。
@@ -67,11 +128,17 @@ int CVICALLBACK EnterSystem_Callback (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			PasswordCtrl_GetAttribute (panelHandle, PANEL_PASSWORD, ATTR_PASSWORD_VAL, pw);
-			if(!strcmp(TruePw, pw))
+			PasswordCtrl_GetAttribute (panelHandle, PANEL_PASSWORD, ATTR_PASSWORD_VAL, Pw);
+			if(!strcmp(TruePw, Pw))
 
 			{
 			//SetCtrlAttribute (MainPanelHandle, MAINPANEL_SystemTime, ATTR_ENABLED, 1);//启动时间显示
+			    	//安装系统托盘
+				InstallSysTrayIcon ("g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\otherfile\\二氧化碳.ico", "肥料发酵过程二氧化碳测试系统正在运行", Icon_Callback, &Icon_Handle);
+				AttachTrayIconMenu (Icon_Handle);//添加系统托盘的菜单
+				InsertTrayIconMenuItem (Icon_Handle, "显示", &icon_index);//添加菜单内容
+				InsertTrayIconMenuItem (Icon_Handle, "退出", &icon_index);
+
 				EnableDragAndDrop (MainPanelHandle);//让主面板使能
 				DisplayPanel (MainPanelHandle); //显示主面板  
 				DiscardPanel (panelHandle);//释放输入密码界面
@@ -79,7 +146,7 @@ int CVICALLBACK EnterSystem_Callback (int panel, int control, int event,
 			}
 			else
 			{
-				MessagePopup("提示信息", pw);
+				MessagePopup("密码错误,请检查密码！！！", Pw);
 			}
 
 			
@@ -87,25 +154,26 @@ int CVICALLBACK EnterSystem_Callback (int panel, int control, int event,
 	}
 	return 0;
 }
-/*退出按钮*/
-int CVICALLBACK QuitSystem_Callback (int panel, int control, int event,
-							  void *callbackData, int eventData1, int eventData2)
+//系统托盘回调
+int CVICALLBACK Icon_Callback (int iconHandle, int event, int eventData)
 {
-	int Waring;
 	switch (event)
-	{
-		case EVENT_COMMIT:
-			Waring = ConfirmPopup ("警告", "是否退出系统？");
-			if(Waring)
-			{
+		{
+			case EVENT_LEFT_DOUBLE_CLICK:
+                SetPanelAttribute (MainPanelHandle, ATTR_VISIBLE, 1);
+		}
+	if (eventData==1)//托盘 显示面板
+		{
+			SetPanelAttribute (MainPanelHandle, ATTR_VISIBLE, 1);
+		}
+	else if (eventData==2)//托盘 退出,真正退出系统
+		{
+                DAQmxClearTask (AItaskhandle);
 				QuitUserInterface (0);
-			}
-			else
-				break;
-			break;
-	}
+		}	
 	return 0;
 }
+
 
 
 /*************************************************************************************/
@@ -129,7 +197,7 @@ int CVICALLBACK MainPanel_Callback (int panel, int event, void *callbackData,
 
 			break;
 		case EVENT_CLOSE:
-            QuitUserInterface (0);
+			SetPanelAttribute (MainPanelHandle, ATTR_VISIBLE, 0);//让面板隐藏到托盘
 			break;
 		case EVENT_FILESDROPPED:
 			addr=(char **)eventData1;
@@ -159,58 +227,6 @@ int CVICALLBACK MainPanel_Callback (int panel, int event, void *callbackData,
 	return 0;
 }
 
-/*AI数据Timer*/
-int CVICALLBACK AItimer_Callback (int panel, int control, int event,
-								  void *callbackData, int eventData1, int eventData2)
-{
-    float64 AIdata[1000];
-	int32 sampsread;
-	int i=0;
-	switch (event)
-	{
-		case EVENT_TIMER_TICK:
-			DAQmxReadAnalogF64 (AItaskhandle, DAQmx_Val_Auto, 10.0, DAQmx_Val_GroupByChannel, AIdata, 1000, &sampsread, 0);	//读取数据
-		    AIdata[i]=AIdata[i]*12.5+3; //标度变换
-			aidata[1]=AIdata[i];//将采集数据传递给第二组Cursor,以便在示波器中显示
-			PlotStripChart (MainPanelHandle, MAINPANEL_STRIPCHART, aidata, 3, 0, 0, VAL_DOUBLE);
-			SetCtrlVal (MainPanelHandle, MAINPANEL_CONCENTRATION, aidata[1]);
-			//温度警报灯亮灭控制
-			if (AIdata[i] >= upper_limit) 
-				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_HIGH, 1);
-   	   	    else
-				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_HIGH, 0);
-			if (AIdata[i] <= lower_limit)
-				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_LOW, 1);
-			else
-				SetCtrlVal (MainPanelHandle, MAINPANEL_ALARM_LOW, 0);	
-			break;
-	}
-	return 0;
-}
-/*获取系统时间Timer*/
-int CVICALLBACK SystemTime_Callback (int panel, int control, int event,
-									 void *callbackData, int eventData1, int eventData2)
-{
-    int Seconds;
-    int Minutes;
-    int Hours;
-	int Month;
-	int Day;
-	int Year;
-	switch (event)
-	{
-		case EVENT_TIMER_TICK:
-		GetSystemTime (&Hours, &Minutes, &Seconds);
-		GetSystemDate (&Month, &Day, &Year);
-        Fmt (dateString, "%d年%d月%d日",Year,Month,Day); 
-		Fmt (timeString, "%d时%d分%d秒",Hours,Minutes,Seconds);
-		SetCtrlVal (MainPanelHandle, MAINPANEL_Date, dateString);
-		SetCtrlVal (MainPanelHandle, MAINPANEL_Time, timeString);
-			break;
-	}
-	return 0;
-}
-
 /*清除文件显示按钮**/
 int CVICALLBACK CleanFile_Callback (int panel, int control, int event,
 									void *callbackData, int eventData1, int eventData2)
@@ -235,10 +251,8 @@ int CVICALLBACK Stop_Callback (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			 SetCtrlAttribute (MainPanelHandle, MAINPANEL_AItimer, ATTR_ENABLED, 0);//启用采集timer
-			 SetCtrlAttribute (MainPanelHandle, MAINPANEL_Acquire, ATTR_DIMMED, 0);//让开始采集可用
-			 DAQmxClearTask (AItaskhandle);
-			 AItaskhandle=0;	 			
+			 DiscardAsyncTimer (AIAsyncTimer);//销毁AI采集异步定时器
+			 SetCtrlAttribute (MainPanelHandle, MAINPANEL_Acquire, ATTR_DIMMED, 0);//让开始采集按钮可用	 			
 			break;
 	}
 	return 0;
@@ -293,7 +307,7 @@ int CVICALLBACK AutoSave_Callback (int panel, int control, int event,
 int CVICALLBACK SaveData_Callback (int panel, int control, int event,
 								   void *callbackData, int eventData1, int eventData2)
 {
-	char TempFilePath[512];//定义临时路径
+	char TempFilePath[MAX_PATHNAME_LEN];//定义临时路径
 	
 	switch (event)
 	{
@@ -335,11 +349,12 @@ int CVICALLBACK Acquire (int panel, int control, int event,
 			DAQmxCreateAIVoltageChan (AItaskhandle, AIchanel, "Voltage", DAQmx_Val_RSE, -5.0, 5, DAQmx_Val_Volts, "");
 			// 设置采样率
 			DAQmxCfgSampClkTiming (AItaskhandle, "", AIrate, DAQmx_Val_Rising, DAQmx_Val_ContSamps, 100);
-			//启用aitimer
-			SetCtrlAttribute (MainPanelHandle, MAINPANEL_AItimer, ATTR_ENABLED, 1);
-			//启用保存数据
+			//启用aitimer，弃用同步定时器改用异步定时器
+			//SetCtrlAttribute (MainPanelHandle, AsyncTimerHandle, ATTR_ENABLED, 1);
+			SetAsyncTimerAttribute (AIAsyncTimer, ASYNC_ATTR_ENABLED,1);
+			//启用保存
 			SetCtrlAttribute (MainPanelHandle, MAINPANEL_SaveData, ATTR_DIMMED, 0);
-			//防止重复点击
+			//采集按钮变灰防止重复点击
 			SetCtrlAttribute (MainPanelHandle, MAINPANEL_Acquire, ATTR_DIMMED, 1);
 			break;
 	}
@@ -388,18 +403,11 @@ int CVICALLBACK SetAlarms_Callback (int panel, int control, int event,
 int CVICALLBACK Quit_Callback (int panel, int control, int event,
 							   void *callbackData, int eventData1, int eventData2)
 {
-	int Waring;
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			Waring = ConfirmPopup ("警告", "是否关闭系统？");
-			if(Waring)
-			{
-				DAQmxClearTask (AItaskhandle);
-				QuitUserInterface (0);
-			}
-			else
-				break;
+			//并非真正退出系统，进入托盘
+			SetPanelAttribute (MainPanelHandle, ATTR_VISIBLE, 0);
 			break;
 	}
 	return 0;
@@ -413,7 +421,7 @@ int CVICALLBACK Quit_Callback (int panel, int control, int event,
 void CVICALLBACK FilePath_Callback (int menuBar, int menuItem, void *callbackData,
 									int panel)
 {
-	DirSelectPopupEx ("C:\\", "Select Directory", NewFilePath);
+	DirSelectPopupEx ("C:\\", "默认文件路径选择", NewFilePath);
 }
 /*输出文件类型*/
 void CVICALLBACK ASCII_O_Callback (int menuBar, int menuItem, void *callbackData,

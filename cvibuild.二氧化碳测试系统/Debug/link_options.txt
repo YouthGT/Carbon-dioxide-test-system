@@ -1,23 +1,24 @@
 -nologo
--out:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\二氧化碳测试系统.exe
+-out:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\二氧化碳测试系统.exe
 -arch:x86
 -timestamp
 -debug:2
--project:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.prj
--res:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\resources.res
+-project:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.prj
+-res:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\resources.res
 -entry:_CVIWinMainStartupCodeForDebugging@0
 -base:0x400000
--linked:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\linkersummary.txt
--dlldeps:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\dlldependencies.txt
--licensing:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\linkerlicensing.txt
--browsedeps:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\moduledependencies.txt
+-linked:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\linkersummary.txt
+-dlldeps:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\dlldependencies.txt
+-licensing:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\linkerlicensing.txt
+-browsedeps:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\moduledependencies.txt
 -stackreserve:1048576
 -stackcommit:4096
--in:c:\Users\youth\Desktop\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\二氧化碳测试系统.obj
+-in:g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\cvibuild.二氧化碳测试系统\Debug\二氧化碳测试系统.obj
 -more:c:\program files (x86)\national instruments\cvi2020\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2020\bin\msvc\cvi.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2020\bin\msvc\advanlys.lib
 -more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\advapi32.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2020\toolslib\toolbox\msvc\asynctmr.obj
 -more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\bufferoverflowu.lib
 -more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\cvi_db.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2020\bin\msvc\cviauto.lib
