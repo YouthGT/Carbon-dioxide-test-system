@@ -13,20 +13,27 @@ static int panelHandle;
 static int MainPanelHandle;
 static int HelpPanelHandle;
 static int Icon_Handle;
+
 int AIAsyncTimer;//定义采集异步定时器
 int DTAsyncTimer;//定义日期时间异步定时器
+int TSAsyncTimer;//定义定时保存异步定时器
 static TaskHandle AItaskhandle;//创建任务
-double aidata[3]={25.0,0,18.0};//默认高低限
-double upper_limit =25,lower_limit =18;//默认高低限
+double aidata[3]={4000.0,0,2000.0};//默认高低限
+double upper_limit =4000,lower_limit =2000;//默认高低限
 int fileTypeI=1;//默认输入ASCII类型
 int fileTypeO=1;//默认输出ASCII类型
 char timeString[50],dateString[50];//时间、日期数组
 static char NewFilePath[MAX_PATHNAME_LEN]={"f:\\"};//文件夹名称
 static char file_name[MAX_PATHNAME_LEN];
 int icon_index;//系统托盘目录
+int TimingTime;//定时时间
+
 int CVICALLBACK Icon_Callback (int iconHandle, int event, int eventData);
 int CVICALLBACK AIAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);
 int CVICALLBACK DTAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);
+int CVICALLBACK TSAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);
+int CVICALLBACK SaveData_Callback (int panel, int control, int event,void *callbackData, int eventData1, int eventData2);
+
 
 int main (int argc, char *argv[])
 {
@@ -38,8 +45,8 @@ int main (int argc, char *argv[])
 	    return -1;
 	PassWord = PasswordCtrl_ConvertFromString (panelHandle, PANEL_PASSWORD);//将输入的字符转换成密码
 	PasswordCtrl_SetAttribute(panelHandle,PANEL_PASSWORD,ATTR_PASSWORD_MASK_CHARACTER,42);//让输入的密码显示为*
-	AIAsyncTimer = NewAsyncTimer (0.1, -1, 0, AIAsyncTimer_Callback, 0);//AI异步定时器参数设置
 	DTAsyncTimer = NewAsyncTimer (0.1, -1, 1, DTAsyncTimer_Callback, 0);//DT异步定时器参数设置
+	AIAsyncTimer = NewAsyncTimer (0.1, -1, 0, AIAsyncTimer_Callback, 0);//AI异步定时器参数设置
 	DisplayPanel (panelHandle);//显示输入密码面板
 	RunUserInterface ();
 	DiscardPanel (MainPanelHandle);
@@ -55,8 +62,8 @@ int CVICALLBACK AIAsyncTimer_Callback (int reserved, int timerId, int event, voi
 	{
 		case EVENT_TIMER_TICK:
 			DAQmxReadAnalogF64 (AItaskhandle, DAQmx_Val_Auto, 10.0, DAQmx_Val_GroupByChannel, AIdata, 1000, &sampsread, 0);	//读取数据
-		    AIdata[i]=AIdata[i]*12.5+3; //标度变换
-			aidata[1]=AIdata[i];//将采集数据传递给第二组Cursor,以便在示波器中显示
+		    AIdata[i]=AIdata[i]*1000; //标度变换
+			aidata[1]=AIdata[i];
 			PlotStripChart (MainPanelHandle, MAINPANEL_STRIPCHART, aidata, 3, 0, 0, VAL_DOUBLE);
 			SetCtrlVal (MainPanelHandle, MAINPANEL_CONCENTRATION, aidata[1]);
 			//温度警报灯亮灭控制
@@ -91,6 +98,18 @@ int CVICALLBACK DTAsyncTimer_Callback (int reserved, int timerId, int event, voi
 		Fmt (timeString, "%d时%d分%d秒",Hours,Minutes,Seconds);
 		SetCtrlVal (MainPanelHandle, MAINPANEL_Date, dateString);
 		SetCtrlVal (MainPanelHandle, MAINPANEL_Time, timeString);
+			break;
+	}
+	return 0;
+}
+/*定时保存异步定时器*/
+int CVICALLBACK TSAsyncTimer_Callback (int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2)
+{
+
+	switch (event)
+	{
+		case EVENT_TIMER_TICK:
+            SaveData_Callback (MainPanelHandle, 0, EVENT_COMMIT,0,0,0);
 			break;
 	}
 	return 0;
@@ -251,8 +270,11 @@ int CVICALLBACK Stop_Callback (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			 DiscardAsyncTimer (AIAsyncTimer);//销毁AI采集异步定时器
-			 SetCtrlAttribute (MainPanelHandle, MAINPANEL_Acquire, ATTR_DIMMED, 0);//让开始采集按钮可用	 			
+			 //DiscardAsyncTimer (AIAsyncTimer);//销毁AI采集异步定时器
+			 SetAsyncTimerAttribute (AIAsyncTimer, ASYNC_ATTR_ENABLED,0);//停止AI采集异步定时器
+			 SetCtrlAttribute (MainPanelHandle, MAINPANEL_Acquire, ATTR_DIMMED, 0);//让开始采集按钮可用	
+ 			 DAQmxClearTask (AItaskhandle);//清除任务
+			 AItaskhandle=0;
 			break;
 	}
 	return 0;
@@ -291,24 +313,42 @@ int CVICALLBACK LoadFile_Callback (int panel, int control, int event,
 	}
 	return 0;
 }
-/*自动保存按钮*/
+
+/*定时保存按钮*/
 int CVICALLBACK AutoSave_Callback (int panel, int control, int event,
 								   void *callbackData, int eventData1, int eventData2)
 {
 	switch (event)
 	{
 		case EVENT_COMMIT:
-
+		    GetCtrlVal (MainPanelHandle, MAINPANEL_TIMER_mm, &TimingTime);
+		    TSAsyncTimer = NewAsyncTimer (TimingTime*10, -1, 0, TSAsyncTimer_Callback, 0);//TS异步定时器参数设置
+            SetAsyncTimerAttribute (TSAsyncTimer, ASYNC_ATTR_ENABLED,1);
+			MessagePopup ("提示", "定时成功");
 			break;
 	}
 	return 0;
 }
+/*关闭定时按钮*/
+int CVICALLBACK OffTiming_Callback (int panel, int control, int event,
+									void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+            SetAsyncTimerAttribute (TSAsyncTimer, ASYNC_ATTR_ENABLED,0);
+			DiscardAsyncTimer (TSAsyncTimer);
+			MessagePopup ("提示", "关闭定时成功");	
+			break;
+	}
+	return 0;
+}
+
 /*保存按钮*/
-int CVICALLBACK SaveData_Callback (int panel, int control, int event,
-								   void *callbackData, int eventData1, int eventData2)
+int CVICALLBACK SaveData_Callback (int panel, int control, int event,void *callbackData, int eventData1, int eventData2)
 {
 	char TempFilePath[MAX_PATHNAME_LEN];//定义临时路径
-	
+	memset(TempFilePath, 0, sizeof TempFilePath);//清空临时路径
 	switch (event)
 	{
 		case EVENT_COMMIT:
@@ -360,7 +400,7 @@ int CVICALLBACK Acquire (int panel, int control, int event,
 	}
 	return 0;
 }
-/*设置温度限*/
+/*设置浓度限*/
 int CVICALLBACK SetAlarms_Callback (int panel, int control, int event,
 									void *callbackData, int eventData1, int eventData2)
 {
@@ -373,7 +413,7 @@ int CVICALLBACK SetAlarms_Callback (int panel, int control, int event,
 			if (upper_limit<=lower_limit)
 				{
 					MessagePopup("警告！！！", "请重新设置上限，上限不能低于下限！！！");
-					SetCtrlVal (MainPanelHandle, MAINPANEL_UPPER_LIMIT, 40.00);	
+					SetCtrlVal (MainPanelHandle, MAINPANEL_UPPER_LIMIT, 5000.00);	
 				}
 			else
 				{
@@ -387,7 +427,7 @@ int CVICALLBACK SetAlarms_Callback (int panel, int control, int event,
 				{
 					MessagePopup("警告！！！", "请重新设置下限，下限不能高于上限！！！");
 					
-					SetCtrlVal (MainPanelHandle, MAINPANEL_LOWER_LIMIT, 10.00);
+					SetCtrlVal (MainPanelHandle, MAINPANEL_LOWER_LIMIT, 2000.00);
 					
 				}
 			else
@@ -482,8 +522,4 @@ void CVICALLBACK About_Callback (int menuBar, int menuItem, void *callbackData,
 {
      MessagePopup("关于", "Lab windows(CVI)课程设计-YouthGT");	
 }
-
-
-
-
 

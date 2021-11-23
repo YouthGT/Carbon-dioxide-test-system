@@ -21,41 +21,42 @@
 #define  MAINPANEL_ALARM_HIGH             6       /* control type: LED, callback function: (none) */
 #define  MAINPANEL_ALARM_LOW              7       /* control type: LED, callback function: (none) */
 #define  MAINPANEL_LoadFile               8       /* control type: command, callback function: LoadFile_Callback */
-#define  MAINPANEL_AutoSave               9       /* control type: command, callback function: AutoSave_Callback */
-#define  MAINPANEL_SaveData               10      /* control type: command, callback function: SaveData_Callback */
-#define  MAINPANEL_CleanChart             11      /* control type: command, callback function: CleanChart_Callback */
-#define  MAINPANEL_Acquire                12      /* control type: command, callback function: Acquire */
-#define  MAINPANEL_UPPER_LIMIT            13      /* control type: scale, callback function: SetAlarms_Callback */
-#define  MAINPANEL_LOWER_LIMIT            14      /* control type: scale, callback function: SetAlarms_Callback */
-#define  MAINPANEL_DECORATION_3           15      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_DECORATION_4           16      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_Time                   17      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_DECORATION_6           18      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_DECORATION             19      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_Date                   20      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_AIrate                 21      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_AIcontrol              22      /* control type: string, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_2              23      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_DECORATION_2           24      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_STRIPCHART             25      /* control type: strip, callback function: (none) */
-#define  MAINPANEL_DECORATION_5           26      /* control type: deco, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_6              27      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_LED                    28      /* control type: LED, callback function: (none) */
-#define  MAINPANEL_NUMERIC_co             29      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_NUMERIC_do             30      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_NUMERIC_up             31      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_PICTURE                32      /* control type: picture, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_0              33      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_3              34      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_5              35      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_4              36      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_1              37      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TIMER_mm               38      /* control type: numeric, callback function: (none) */
-#define  MAINPANEL_FileAnalysis           39      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_7              40      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_8              41      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_9              42      /* control type: textMsg, callback function: (none) */
-#define  MAINPANEL_TEXTMSG_10             43      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_OffTiming              9       /* control type: command, callback function: OffTiming_Callback */
+#define  MAINPANEL_AutoSave               10      /* control type: command, callback function: AutoSave_Callback */
+#define  MAINPANEL_SaveData               11      /* control type: command, callback function: SaveData_Callback */
+#define  MAINPANEL_CleanChart             12      /* control type: command, callback function: CleanChart_Callback */
+#define  MAINPANEL_Acquire                13      /* control type: command, callback function: Acquire */
+#define  MAINPANEL_UPPER_LIMIT            14      /* control type: scale, callback function: SetAlarms_Callback */
+#define  MAINPANEL_LOWER_LIMIT            15      /* control type: scale, callback function: SetAlarms_Callback */
+#define  MAINPANEL_DECORATION_3           16      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_DECORATION_4           17      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_Time                   18      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_DECORATION_6           19      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_DECORATION             20      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_Date                   21      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_AIrate                 22      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_AIcontrol              23      /* control type: string, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_2              24      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_DECORATION_2           25      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_STRIPCHART             26      /* control type: strip, callback function: (none) */
+#define  MAINPANEL_DECORATION_5           27      /* control type: deco, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_6              28      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_LED                    29      /* control type: LED, callback function: (none) */
+#define  MAINPANEL_NUMERIC_co             30      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_NUMERIC_do             31      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_NUMERIC_up             32      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_PICTURE                33      /* control type: picture, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_0              34      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_3              35      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_5              36      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_4              37      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_1              38      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TIMER_mm               39      /* control type: numeric, callback function: (none) */
+#define  MAINPANEL_FileAnalysis           40      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_7              41      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_8              42      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_9              43      /* control type: textMsg, callback function: (none) */
+#define  MAINPANEL_TEXTMSG_10             44      /* control type: textMsg, callback function: (none) */
 
 
      /* Control Arrays: */
@@ -95,6 +96,7 @@ void CVICALLBACK FilePath_Callback(int menubar, int menuItem, void *callbackData
 void CVICALLBACK Help_Callback(int menubar, int menuItem, void *callbackData, int panel);
 int  CVICALLBACK LoadFile_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK MainPanel_Callback(int panel, int event, void *callbackData, int eventData1, int eventData2);
+int  CVICALLBACK OffTiming_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK Quit_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK SaveData_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK SetAlarms_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);

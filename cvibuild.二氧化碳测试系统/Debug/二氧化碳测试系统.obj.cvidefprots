@@ -1,120 +1,130 @@
 [main]
 Class="Function"
 Prototype="int main(int argc, char *argv[]);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:31:5"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:38:5"
 
 [AIAsyncTimer_Callback]
 Class="Function"
 Prototype="int AIAsyncTimer_Callback(int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:49:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:56:17"
 
 [DTAsyncTimer_Callback]
 Class="Function"
 Prototype="int DTAsyncTimer_Callback(int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:77:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:84:17"
+
+[TSAsyncTimer_Callback]
+Class="Function"
+Prototype="int TSAsyncTimer_Callback(int reserved, int timerId, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:106:17"
 
 [Panel_Callback]
 Class="Function"
 Prototype="int Panel_Callback(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:99:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:118:17"
 
 [EnterSystem_Callback]
 Class="Function"
 Prototype="int EnterSystem_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:120:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:139:17"
 
 [Icon_Callback]
 Class="Function"
 Prototype="int Icon_Callback(int iconHandle, int event, int eventData);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:158:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:177:17"
 
 [MainPanel_Callback]
 Class="Function"
 Prototype="int MainPanel_Callback(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:186:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:205:17"
 
 [CleanFile_Callback]
 Class="Function"
 Prototype="int CleanFile_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:231:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:250:17"
 
 [Stop_Callback]
 Class="Function"
 Prototype="int Stop_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:248:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:267:17"
 
 [LoadFile_Callback]
 Class="Function"
 Prototype="int LoadFile_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:261:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:283:17"
 
 [AutoSave_Callback]
 Class="Function"
 Prototype="int AutoSave_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:295:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:318:17"
+
+[OffTiming_Callback]
+Class="Function"
+Prototype="int OffTiming_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:333:17"
 
 [SaveData_Callback]
 Class="Function"
 Prototype="int SaveData_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:307:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:348:17"
 
 [CleanChart_Callback]
 Class="Function"
 Prototype="int CleanChart_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:325:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:365:17"
 
 [Acquire]
 Class="Function"
 Prototype="int Acquire(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:337:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:377:17"
 
 [SetAlarms_Callback]
 Class="Function"
 Prototype="int SetAlarms_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:364:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:404:17"
 
 [Quit_Callback]
 Class="Function"
 Prototype="int Quit_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:403:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:443:17"
 
 [FilePath_Callback]
 Class="Function"
 Prototype="void FilePath_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:421:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:461:18"
 
 [ASCII_O_Callback]
 Class="Function"
 Prototype="void ASCII_O_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:427:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:467:18"
 
 [Binary_O_Callback]
 Class="Function"
 Prototype="void Binary_O_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:434:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:474:18"
 
 [ASCII_I_Callback]
 Class="Function"
 Prototype="void ASCII_I_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:441:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:481:18"
 
 [Binary_I_Callback]
 Class="Function"
 Prototype="void Binary_I_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:448:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:488:18"
 
 [Help_Callback]
 Class="Function"
 Prototype="void Help_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:455:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:495:18"
 
 [HelpPanel_Callback]
 Class="Function"
 Prototype="int HelpPanel_Callback(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:462:17"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:502:17"
 
 [About_Callback]
 Class="Function"
 Prototype="void About_Callback(int menuBar, int menuItem, void *callbackData, int panel);"
-SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:480:18"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\二氧化碳测试系统.c:520:18"
 

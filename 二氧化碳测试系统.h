@@ -22,6 +22,8 @@
 #define  PANEL_PICTURE_2                  7       /* control type: picture, callback function: (none) */
 #define  PANEL_PICTURE_Lock_2             8       /* control type: picture, callback function: (none) */
 #define  PANEL_PICTURE_Lock               9       /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_3                  10      /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_4                  11      /* control type: picture, callback function: (none) */
 
 
      /* Control Arrays: */
