@@ -1,7 +1,7 @@
 #pragma code_page(65001)
 #include "C:\Program Files (x86)\National Instruments\Shared\MSDTRedistributables\SDKHeaderFiles\8.1\winver.h"
 
-2 ICON "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\otherfile\\二氧化碳.ico"
+2 ICON "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\otherfile\\农药化肥.ico"
 1 24 "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\cvibuild.二氧化碳测试系统\\Debug\\manifest.xml"
 
 
@@ -41,4 +41,6 @@ END
 
 主界面.uir UIRFileType "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\主界面.uir"
 二氧化碳测试系统.uir UIRFileType "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\二氧化碳测试系统.uir"
+参数设置.uir UIRFileType "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\参数设置.uir"
 帮助.uir UIRFileType "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\帮助.uir"
+数据分析.uir UIRFileType "g:\\All open source projects\\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\\数据分析.uir"

@@ -1,0 +1,20 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\参数设置.c:7:5"
+
+[SetPanel_Callback]
+Class="Function"
+Prototype="int SetPanel_Callback(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\参数设置.c:20:17"
+
+[Set_TAB_Callback]
+Class="Function"
+Prototype="int Set_TAB_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\参数设置.c:38:17"
+
+[SetAlarms_Callback]
+Class="Function"
+Prototype="int SetAlarms_Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="g:\All open source projects\基于虚拟仪器的肥料发酵过程二氧化碳测试系统\参数设置.c:44:17"
+

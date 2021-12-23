@@ -19,11 +19,12 @@
 #define  PANEL_ENTERSYSTEM                4       /* control type: command, callback function: EnterSystem_Callback */
 #define  PANEL_PICTURE                    5       /* control type: picture, callback function: (none) */
 #define  PANEL_STRING                     6       /* control type: string, callback function: (none) */
-#define  PANEL_PICTURE_2                  7       /* control type: picture, callback function: (none) */
-#define  PANEL_PICTURE_Lock_2             8       /* control type: picture, callback function: (none) */
-#define  PANEL_PICTURE_Lock               9       /* control type: picture, callback function: (none) */
-#define  PANEL_PICTURE_3                  10      /* control type: picture, callback function: (none) */
-#define  PANEL_PICTURE_4                  11      /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_6                  7       /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_5                  8       /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_Lock_2             9       /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_Lock               10      /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_3                  11      /* control type: picture, callback function: (none) */
+#define  PANEL_PICTURE_4                  12      /* control type: picture, callback function: (none) */
 
 
      /* Control Arrays: */

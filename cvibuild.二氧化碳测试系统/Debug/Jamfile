@@ -31,7 +31,9 @@ include Jamfile_instr ;
 LOCATE on "Ö÷½çÃæ.h" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
 LOCATE on "¶şÑõ»¯Ì¼²âÊÔÏµÍ³.c" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
 LOCATE on "¶şÑõ»¯Ì¼²âÊÔÏµÍ³.h" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
+LOCATE on "²ÎÊıÉèÖÃ.h" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
 LOCATE on "°ïÖú.h" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
+LOCATE on "Êı¾İ·ÖÎö.h" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³" ;
 Object "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.obj" : "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.c" ;
 FILENUM on "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.obj" = 1 ;
 DEFPROTS on "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.obj" = "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.obj.cvidefprots" ;
@@ -44,5 +46,7 @@ Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ
 Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.exe" : "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" ;
 Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" :  "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Ö÷½çÃæ.uir" ;
 Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" :  "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.uir" ;
+Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" :  "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\²ÎÊıÉèÖÃ.uir" ;
 Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" :  "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\°ïÖú.uir" ;
+Depends "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\resources.res" :  "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Êı¾İ·ÖÎö.uir" ;
 Depends all : "g:\\All open source projects\\»ùÓÚĞéÄâÒÇÆ÷µÄ·ÊÁÏ·¢½Í¹ı³Ì¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\cvibuild.¶şÑõ»¯Ì¼²âÊÔÏµÍ³\\Debug\\¶şÑõ»¯Ì¼²âÊÔÏµÍ³.exe" ;

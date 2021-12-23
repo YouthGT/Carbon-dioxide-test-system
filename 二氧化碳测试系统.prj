@@ -11,7 +11,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 9
+Number of Files = 13
 Target Type = "Executable"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -61,6 +61,19 @@ File Type = "User Interface Resource"
 Res Id = 3
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "参数设置.uir"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/参数设置.uir"
+Exclude = False
+Project Flags = 0
+Folder = "User Interface Files"
+Folder Id = 0
+
+[File 0004]
+File Type = "User Interface Resource"
+Res Id = 4
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "帮助.uir"
 Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
 Path Line0002 = "测试系统/帮助.uir"
@@ -69,22 +82,35 @@ Project Flags = 0
 Folder = "User Interface Files"
 Folder Id = 0
 
-[File 0004]
+[File 0005]
+File Type = "User Interface Resource"
+Res Id = 5
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "数据分析.uir"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/数据分析.uir"
+Exclude = False
+Project Flags = 0
+Folder = "User Interface Files"
+Folder Id = 0
+
+[File 0006]
 File Type = "Function Panel"
-Res Id = 4
+Res Id = 6
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI"
 Path Rel Path = "toolslib/toolbox/asynctmr.fp"
-Path = "/c/Program Files (x86)/National Instruments/CVI2020/toolslib/toolbox/asynctmr.fp"
+Path = "/c/program files (x86)/national instruments/cvi2020/toolslib/toolbox/asynctmr.fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
 Folder Id = 1
 
-[File 0005]
+[File 0007]
 File Type = "Function Panel"
-Res Id = 5
+Res Id = 7
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI"
@@ -95,9 +121,9 @@ Project Flags = 0
 Folder = "Instrument Files"
 Folder Id = 1
 
-[File 0006]
+[File 0008]
 File Type = "CSource"
-Res Id = 6
+Res Id = 8
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "二氧化碳测试系统.c"
@@ -109,9 +135,9 @@ Project Flags = 0
 Folder = "Source Files"
 Folder Id = 2
 
-[File 0007]
+[File 0009]
 File Type = "Include"
-Res Id = 7
+Res Id = 9
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "主界面.h"
@@ -122,9 +148,9 @@ Project Flags = 0
 Folder = "Include Files"
 Folder Id = 3
 
-[File 0008]
+[File 0010]
 File Type = "Include"
-Res Id = 8
+Res Id = 10
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "二氧化碳测试系统.h"
@@ -135,14 +161,40 @@ Project Flags = 0
 Folder = "Include Files"
 Folder Id = 3
 
-[File 0009]
+[File 0011]
 File Type = "Include"
-Res Id = 9
+Res Id = 11
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "参数设置.h"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/参数设置.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 3
+
+[File 0012]
+File Type = "Include"
+Res Id = 12
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "帮助.h"
 Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
 Path Line0002 = "测试系统/帮助.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+Folder Id = 3
+
+[File 0013]
+File Type = "Include"
+Res Id = 13
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "数据分析.h"
+Path Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
+Path Line0002 = "测试系统/数据分析.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
@@ -191,9 +243,9 @@ Sign URL = ""
 Manifest Embed = False
 Icon File Is Rel = True
 Icon File Rel To = "Project"
-Icon File Rel Path = "otherfile/二氧化碳.ico"
+Icon File Rel Path = "otherfile/农药化肥.ico"
 Icon File Line0001 = "/g/All open source projects/基于虚拟仪器的肥料发酵过程二氧化碳"
-Icon File Line0002 = "测试系统/otherfile/二氧化碳.ico"
+Icon File Line0002 = "测试系统/otherfile/农药化肥.ico"
 Application Title = ""
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
@@ -298,7 +350,7 @@ Custom Directory to Copy DLL = ""
 Generate Source Documentation = "None"
 Runtime Support = "Full Runtime Support"
 Runtime Binding = "Shared"
-Embed Project .UIRs = False
+Embed Project .UIRs = True
 Generate Map File = False
 Embed Timestamp = True
 Create Console Application = False
@@ -511,7 +563,7 @@ Type Lib FP File = ""
 Type Lib Guid = ""
 Runtime Support = "Full Runtime Support"
 Instrument Driver Support Only = False
-Embed Project .UIRs = False
+Embed Project .UIRs = True
 Generate Map File = False
 
 [External Compiler Support]

@@ -16,6 +16,21 @@
 #define  HelpPanel                        1       /* callback function: HelpPanel_Callback */
 #define  HelpPanel_TAB                    2       /* control type: tab, callback function: (none) */
 
+     /* tab page panel controls */
+#define  TABPANEL_0_TEXTBOX               2       /* control type: textBox, callback function: (none) */
+
+     /* tab page panel controls */
+#define  TABPANEL_1_TEXTBOX               2       /* control type: textBox, callback function: (none) */
+
+     /* tab page panel controls */
+#define  TABPANEL_3_TEXTBOX               2       /* control type: textBox, callback function: (none) */
+
+     /* tab page panel controls */
+#define  TABPANEL_4_TEXTBOX               2       /* control type: textBox, callback function: (none) */
+
+     /* tab page panel controls */
+#define  TABPANEL_5_TEXTBOX               2       /* control type: textBox, callback function: (none) */
+
 
      /* Control Arrays: */
 
